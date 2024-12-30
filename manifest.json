@@ -3,7 +3,7 @@
 	"manifest_version": 3,
 	"browser_specific_settings": {
 		"gecko": {
-			"id": "realooffyy@gmail.com",
+			"id": "{edd10871-08fe-4aff-aafe-c765e6e58124}",
 			"strict_min_version": "109.0"
 		}
 	},
