@@ -1,5 +1,7 @@
 import os
 import zipfile
+import subprocess
+import sys
 
 ZIP_NAME = 'Osekai Medal Linker.zip'
 
@@ -22,7 +24,12 @@ def zip_directory(directory_path, zip_path, exclude_files, exclude_folders):
                     zipf.write(file_path, arcname)
 
     # Open the directory containing the zip file
-    os.startfile(os.path.join(directory_path, ZIP_NAME))
+    if sys.platform == 'win32':
+        os.startfile(directory_path)
+    elif sys.platform == 'darwin':
+        subprocess.Popen(['open', directory_path])
+    else:  # Linux
+        subprocess.Popen(['xdg-open', directory_path])
 
 if __name__ == "__main__":
     script_dir = os.path.dirname(os.path.abspath(__file__))
