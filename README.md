@@ -27,5 +27,5 @@ Osekai Medals: https://inex.osekai.net/medals
 ### Building
 
 -   Download the source code
--   Run `build.py`
+-   Run `zip.sh`
 -   This should create `Osekai Medal Linker.zip`
