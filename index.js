@@ -7,6 +7,7 @@ const BADGE_CLASS = "badge-achievement__image";
  * all osekai medal ids can be found here: https://inex.osekai.net/api/medals/get_all
  */
 const BROKEN_BADGES = {
+	"50/50": "168",
 	"Any%": "194"
 };
 

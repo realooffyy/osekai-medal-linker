@@ -1,4 +1,4 @@
-rm -f "Osekai Medal Linker.zip"
+rm -f osekaimedallinker-*.zip
 echo Removed old zip
-zip -r "Osekai Medal Linker.zip" icons manifest.json index.js
+zip -r "osekaimedallinker-$(jq -r '.version' manifest.json).zip" icons manifest.json index.js
 echo Zipped files successfully
