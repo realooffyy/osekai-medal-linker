@@ -9,18 +9,18 @@
 	},
 	"name": "Osekai Medal Linker",
 	"description": "Opens clicked osu! medals in osekai",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"icons": {
-		"16": "./icons/icon_16.png",
-		"32": "./icons/icon_32.png",
-		"48": "./icons/icon_48.png",
-		"128": "./icons/icon_128.png"
+		"16": "icons/icon_16.png",
+		"32": "icons/icon_32.png",
+		"48": "icons/icon_48.png",
+		"128": "icons/icon_128.png"
 	},
 	"content_scripts": [
 		{
 			"js": ["index.js"],
 			"matches": ["https://osu.ppy.sh/*"],
-			"run_at": "document_end"
+			"run_at": "document_start"
 		}
 	]
 }
