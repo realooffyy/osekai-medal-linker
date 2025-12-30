@@ -1,24 +1,38 @@
-const osekaiMedals = "https://inex.osekai.net/medals/";
+const LINK = "https://inex.osekai.net/medals/";
+const BADGE_CLASS = "badge-achievement__image";
 
-const observer = new MutationObserver((mutations) => {
-	mutations.forEach((mutation) => {
-		if (!mutation.addedNodes.length) return;
+/** for badges that have broken links (usually due to special characters).
+ * an ideal solution would be to convert all badge names (alt) to their respective ids,
+ * but there is only one known broken badge at the moment.
+ * all osekai medal ids can be found here: https://inex.osekai.net/api/medals/get_all
+ */
+const BROKEN_BADGES = {
+	"Any%": "194"
+};
 
-		const medals = document?.getElementsByClassName(
-			"badge-achievement__image"
-		);
-		if (!medals) return;
+const isBadge = (element) => {
+	return element.classList.contains(BADGE_CLASS);
+};
 
-		for (let i = 0; i < medals.length; i++) {
-			const alt = medals[i]?.getAttribute("alt");
-			if (!alt) continue;
-
-			medals[i].style.cursor = "pointer";
-			medals[i].onclick = () => {
-				window.open(osekaiMedals + alt, "_blank");
-			};
-		}
-	});
+// set cursor to pointer
+document.addEventListener("mouseover", (event) => {
+	const target = event.target;
+	if (isBadge(target)) {
+		target.style.cursor = "pointer";
+	}
 });
 
-observer.observe(document.body, { childList: true, subtree: true });
+// parse and open medal page on click
+document.addEventListener("click", (event) => {
+	const target = event.target;
+	if (!isBadge(target)) return;
+
+	let alt = target.getAttribute("alt");
+	if (!alt) return;
+
+	// fix special broken badges (see BROKEN_BADGES)
+	if (BROKEN_BADGES[alt]) alt = BROKEN_BADGES[alt];
+
+	const encodedAlt = encodeURIComponent(alt); // converts special characters
+	window.open(LINK + encodedAlt, "_blank");
+});
