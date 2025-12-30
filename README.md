@@ -26,6 +26,9 @@ Osekai Medals: https://inex.osekai.net/medals
 
 ### Building
 
--   Download the source code
+The build script is made for Linux (debian-based), other operating systems were not tested.
+
+-   Install the `jq` library (`sudo apt install jq`)
+-   Clone this repository
 -   Run `zip.sh`
--   This should create `Osekai Medal Linker.zip`
+-   This should create `osekaimedallinker-x.x.x.zip`
