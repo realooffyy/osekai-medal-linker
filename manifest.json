@@ -20,7 +20,7 @@
 		{
 			"js": ["index.js"],
 			"matches": ["https://osu.ppy.sh/*"],
-			"run_at": "document_end"
+			"run_at": "document_start"
 		}
 	]
 }
