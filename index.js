@@ -3,10 +3,11 @@ const BADGE_CLASS = "badge-achievement__image";
 
 /** for badges that have broken links (usually due to special characters).
  * an ideal solution would be to convert all badge names (alt) to their respective ids,
- * but there is only one known broken badge at the moment.
+ * but there is only a small number of broken badges.
  * all osekai medal ids can be found here: https://inex.osekai.net/api/medals/get_all
  */
 const BROKEN_BADGES = {
+	"January/February 2017 Spotlight": "162",
 	"50/50": "168",
 	"Any%": "194"
 };
@@ -36,4 +37,6 @@ document.addEventListener("click", (event) => {
 
 	const encodedAlt = encodeURIComponent(alt); // converts special characters
 	window.open(LINK + encodedAlt, "_blank");
+
+	// console.log(`${alt}`);
 });
